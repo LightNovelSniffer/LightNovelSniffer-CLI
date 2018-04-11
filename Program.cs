@@ -15,12 +15,13 @@ namespace LightNovelSniffer_CLI
             try
             {
                 ConfigTools.InitConf();
-                consoleTools = new ConsoleTools();
-                webCrawler = new WebCrawler(consoleTools, consoleTools);
+                consoleTools = new ConsoleTools(1);
+                ConsoleTools ctForWebcrawler = new ConsoleTools(3);
+                webCrawler = new WebCrawler(ctForWebcrawler, ctForWebcrawler);
             }
             catch (ApplicationException e)
             {
-                consoleTools.Log(e.Message, 1);
+                consoleTools.Log(e.Message);
                 return;
             }
 
@@ -31,7 +32,7 @@ namespace LightNovelSniffer_CLI
                     Globale.OUTPUT_FOLDER = folder;
             }
 
-            consoleTools.Log("Début du programme", 1);
+            consoleTools.Log("Début du programme");
 
             foreach (LnParameters ln in Globale.LN_TO_RETRIEVE)
             {
@@ -50,7 +51,7 @@ namespace LightNovelSniffer_CLI
 
             }
 
-            consoleTools.Log("Fin du programme", 1);
+            consoleTools.Log("Fin du programme");
             if (Globale.INTERACTIVE_MODE)
                 Console.ReadLine();
         }
@@ -67,7 +68,7 @@ namespace LightNovelSniffer_CLI
                     if (!string.IsNullOrEmpty(up.url))
                         webCrawler.DownloadChapters(ln, up.language);
                     else
-                        consoleTools.Log(string.Format("Pas d'URL pour la version {0}. Traitement arrêté", up.language), 1);
+                        consoleTools.Log(string.Format("Pas d'URL pour la version {0}. Traitement arrêté", up.language));
                 }
             }
         }
@@ -97,7 +98,7 @@ namespace LightNovelSniffer_CLI
                 if (!string.IsNullOrEmpty(up.language) && !string.IsNullOrEmpty(up.url))
                     ln.urlParameters.Add(up);
                 else
-                    consoleTools.Log("Pas d'URL ou de language pour cette version. Ajout impossible", 1);
+                    consoleTools.Log("Pas d'URL ou de language pour cette version. Ajout impossible");
             } while (consoleTools.Ask("Voulez vous ajouter une autre version pour cette LN ?"));
 
             return ln;

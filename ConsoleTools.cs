@@ -8,6 +8,12 @@ namespace LightNovelSniffer_CLI
     internal class ConsoleTools : IInput, IOutput
     {
         private bool isProgressOngoing = false;
+        private int defaultIndentation = 1;
+        
+        public ConsoleTools(int defaultIndentation)
+        {
+            this.defaultIndentation = defaultIndentation;
+        }
 
         private void CheckProgress()
         {
@@ -44,6 +50,16 @@ namespace LightNovelSniffer_CLI
         {
             isProgressOngoing = true;
             Console.Write("\r" + DateTime.Now.ToString("HH:mm:ss") + " : " + Indent(text, tab));
+        }
+
+        public void Log(string text)
+        {
+            Log(text, defaultIndentation);
+        }
+
+        public void Progress(string text)
+        {
+            Progress(text, defaultIndentation);
         }
 
         public bool Ask(string question)
