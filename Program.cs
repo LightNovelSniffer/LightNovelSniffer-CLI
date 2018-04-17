@@ -24,6 +24,7 @@
 using System;
 using LightNovelSniffer.Config;
 using LightNovelSniffer.Web;
+using LightNovelSniffer_CLI.Resources;
 
 namespace LightNovelSniffer_CLI
 {
@@ -47,22 +48,22 @@ namespace LightNovelSniffer_CLI
                 return;
             }
 
-            if (!consoleTools.Ask("Utiliser le dossier de sortie \"" + Globale.OUTPUT_FOLDER + "\" ?"))
+            if (!consoleTools.Ask(String.Format(LightNovelSniffer_CLI_Strings.AskOutputFolderConfirmation, Globale.OUTPUT_FOLDER)))
             {
-                string folder = consoleTools.AskInformation("Merci de saisir le chemin du dossier racine à utiliser : ");
+                string folder = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskOutputFolder);
                 if (!string.IsNullOrEmpty(folder))
                     Globale.OUTPUT_FOLDER = folder;
             }
 
-            consoleTools.Log("Début du programme");
+            consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramStart);
 
             foreach (LnParameters ln in Globale.LN_TO_RETRIEVE)
             {
-                if (consoleTools.Ask(string.Format("Voulez-vous récupérer {0} ?", ln.name.ToUpper())))
+                if (consoleTools.Ask(string.Format(LightNovelSniffer_CLI_Strings.AskRetrieveLn, ln.name.ToUpper())))
                     GetNovel(ln);
             }
 
-            if (Globale.INTERACTIVE_MODE && consoleTools.AskNegative("Fin du traitement des Light Novel prédéfinies. Voulez vous en traiter d'autres ?"))
+            if (Globale.INTERACTIVE_MODE && consoleTools.AskNegative(LightNovelSniffer_CLI_Strings.LogEndOfLnInConfig))
             {
                 LnParameters ln;
                 do
@@ -73,7 +74,7 @@ namespace LightNovelSniffer_CLI
 
             }
 
-            consoleTools.Log("Fin du programme");
+            consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramEnd);
             if (Globale.INTERACTIVE_MODE)
                 Console.ReadLine();
         }
@@ -82,15 +83,15 @@ namespace LightNovelSniffer_CLI
         {
             foreach (UrlParameter up in ln.urlParameters)
             {
-                if (consoleTools.Ask(string.Format("Voulez-vous récupérer la version {0} ?", up.language)))
+                if (consoleTools.Ask(string.Format(LightNovelSniffer_CLI_Strings.AskRetrieveLnLanguage, up.language)))
                 {
                     if (string.IsNullOrEmpty(up.url))
-                        up.url = consoleTools.AskUrl(string.Format("Aucune URL renseignée pour {0} dans cette langue. Merci de saisir l'url d'un chapitre ici: ", ln.name));
+                        up.url = consoleTools.AskUrl(string.Format(LightNovelSniffer_CLI_Strings.AskLnUrl, ln.name));
 
                     if (!string.IsNullOrEmpty(up.url))
                         webCrawler.DownloadChapters(ln, up.language);
                     else
-                        consoleTools.Log(string.Format("Pas d'URL pour la version {0}. Traitement arrêté", up.language));
+                        consoleTools.Log(string.Format(LightNovelSniffer_CLI_Strings.LogNoLnUrlStopProcess, up.language));
                 }
             }
         }
@@ -99,11 +100,11 @@ namespace LightNovelSniffer_CLI
         {
             LnParameters ln = new LnParameters();
 
-            ln.name = consoleTools.AskInformation("Nom de la LN (vide pour arrêter) : ");
+            ln.name = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskLnName_EmptyToStop);
             if (string.IsNullOrEmpty(ln.name))
                 return ln;
-            ln.urlCover = consoleTools.AskInformation("URL de l'image de cover : ");
-            string authors = consoleTools.AskInformation("Auteurs (séparés par des virgules) : ");
+            ln.urlCover = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskCoverUrl);
+            string authors = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskCsvAuthor);
             if (!string.IsNullOrEmpty(authors))
                 foreach (string author in authors.Split(','))
                     ln.authors.Add(author.Trim());
@@ -112,16 +113,16 @@ namespace LightNovelSniffer_CLI
             {
                 UrlParameter up = new UrlParameter();
 
-                up.language = consoleTools.AskInformation("Entrez la langue de cette version (FR/EN/...) : ");
-                up.url = consoleTools.AskInformation("Entrez l'url d'un des chapitres : ");
-                int.TryParse(consoleTools.AskInformation("A quel chapitre voulez vous commencer (si vide, 1) : "), out up.firstChapterNumber);
-                int.TryParse(consoleTools.AskInformation("A quel chapitre voulez vous vous arrêter (si vide, jusqu'au dernier paru) : "), out up.lastChapterNumber);
+                up.language = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskLnVersionLanguage);
+                up.url = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskLnVersionChapterUrl);
+                int.TryParse(consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskFirstChapterNumber), out up.firstChapterNumber);
+                int.TryParse(consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskLastChapterNumber), out up.lastChapterNumber);
 
                 if (!string.IsNullOrEmpty(up.language) && !string.IsNullOrEmpty(up.url))
                     ln.urlParameters.Add(up);
                 else
-                    consoleTools.Log("Pas d'URL ou de language pour cette version. Ajout impossible");
-            } while (consoleTools.Ask("Voulez vous ajouter une autre version pour cette LN ?"));
+                    consoleTools.Log(LightNovelSniffer_CLI_Strings.LogNoUrlOrLanguageForThisVersion);
+            } while (consoleTools.Ask(LightNovelSniffer_CLI_Strings.AskAddAnotherLnVersion));
 
             return ln;
         }

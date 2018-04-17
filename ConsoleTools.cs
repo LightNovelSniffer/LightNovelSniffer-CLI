@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using LightNovelSniffer.Config;
 using LightNovelSniffer.Libs;
+using LightNovelSniffer_CLI.Resources;
 
 namespace LightNovelSniffer_CLI
 {
@@ -26,7 +28,7 @@ namespace LightNovelSniffer_CLI
 
         private void OutputString(string str)
         {
-            Console.Write(DateTime.Now.ToString("HH:mm:ss") + " : " + str);
+            Console.Write(DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " + str);
         }
 
         private string Indent(string text, int tab)
@@ -49,7 +51,7 @@ namespace LightNovelSniffer_CLI
         public void Progress(string text, int tab)
         {
             isProgressOngoing = true;
-            Console.Write("\r" + DateTime.Now.ToString("HH:mm:ss") + " : " + Indent(text, tab));
+            Console.Write("\r" + DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " + Indent(text, tab));
         }
 
         public void Log(string text)
@@ -64,8 +66,8 @@ namespace LightNovelSniffer_CLI
 
         public bool Ask(string question)
         {
-            string input = AskInformation(question + " O/n ");
-            return input != null && !input.ToUpper().Equals("N");
+            string input = AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToUpper() + "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToLower() + " ");
+            return input != null && !input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper());
         }
 
         public string AskInformation(string question)
@@ -96,8 +98,8 @@ namespace LightNovelSniffer_CLI
 
         public bool AskNegative(string question)
         {
-            string input = AskInformation(question + " o/N ");
-            return !(string.IsNullOrEmpty(input) || input.ToUpper().Equals("N"));
+            string input = AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToLower() + "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper() + " ");
+            return !(string.IsNullOrEmpty(input) || input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper()));
         }
     }
 }
