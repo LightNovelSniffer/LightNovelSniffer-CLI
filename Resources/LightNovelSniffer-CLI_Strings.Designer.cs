@@ -22,7 +22,7 @@ namespace LightNovelSniffer_CLI.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class LightNovelSniffer_CLI_Strings {
+    public class LightNovelSniffer_CLI_Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LightNovelSniffer_CLI.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LightNovelSniffer_CLI.Resources.LightNovelSniffer-CLI_Strings", typeof(LightNovelSniffer_CLI_Strings).Assembly);
@@ -51,7 +51,7 @@ namespace LightNovelSniffer_CLI.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Do you want to add another version for this LN ?.
         /// </summary>
-        internal static string AskAddAnotherLnVersion {
+        public static string AskAddAnotherLnVersion {
             get {
                 return ResourceManager.GetString("AskAddAnotherLnVersion", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cover picture URL :.
         /// </summary>
-        internal static string AskCoverUrl {
+        public static string AskCoverUrl {
             get {
                 return ResourceManager.GetString("AskCoverUrl", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Authors (comma separated) :.
         /// </summary>
-        internal static string AskCsvAuthor {
+        public static string AskCsvAuthor {
             get {
                 return ResourceManager.GetString("AskCsvAuthor", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to At which chapter do you want to start (if empty, 1) :.
         /// </summary>
-        internal static string AskFirstChapterNumber {
+        public static string AskFirstChapterNumber {
             get {
                 return ResourceManager.GetString("AskFirstChapterNumber", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to At which chapter do you want to stop (if empty, until last parution) : .
         /// </summary>
-        internal static string AskLastChapterNumber {
+        public static string AskLastChapterNumber {
             get {
                 return ResourceManager.GetString("AskLastChapterNumber", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to LN name (empty to stop) :.
         /// </summary>
-        internal static string AskLnName_EmptyToStop {
+        public static string AskLnName_EmptyToStop {
             get {
                 return ResourceManager.GetString("AskLnName_EmptyToStop", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to No URL specified for {0} in this language. Please enter any chapter URL here :.
         /// </summary>
-        internal static string AskLnUrl {
+        public static string AskLnUrl {
             get {
                 return ResourceManager.GetString("AskLnUrl", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter any chapter URL here :.
         /// </summary>
-        internal static string AskLnVersionChapterUrl {
+        public static string AskLnVersionChapterUrl {
             get {
                 return ResourceManager.GetString("AskLnVersionChapterUrl", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to What is the language of this version (FR/EN/...) :.
         /// </summary>
-        internal static string AskLnVersionLanguage {
+        public static string AskLnVersionLanguage {
             get {
                 return ResourceManager.GetString("AskLnVersionLanguage", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter the root folder path to use : .
         /// </summary>
-        internal static string AskOutputFolder {
+        public static string AskOutputFolder {
             get {
                 return ResourceManager.GetString("AskOutputFolder", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Use output folder &quot;{0}&quot; ?.
         /// </summary>
-        internal static string AskOutputFolderConfirmation {
+        public static string AskOutputFolderConfirmation {
             get {
                 return ResourceManager.GetString("AskOutputFolderConfirmation", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to n.
         /// </summary>
-        internal static string AskQuestionChoicesNegativeAnswer {
+        public static string AskQuestionChoicesNegativeAnswer {
             get {
                 return ResourceManager.GetString("AskQuestionChoicesNegativeAnswer", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to y.
         /// </summary>
-        internal static string AskQuestionChoicesPositiveAnswer {
+        public static string AskQuestionChoicesPositiveAnswer {
             get {
                 return ResourceManager.GetString("AskQuestionChoicesPositiveAnswer", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Do you want to retrieve {0} ?.
         /// </summary>
-        internal static string AskRetrieveLn {
+        public static string AskRetrieveLn {
             get {
                 return ResourceManager.GetString("AskRetrieveLn", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Do you want to retrieve the {0} version ?.
         /// </summary>
-        internal static string AskRetrieveLnLanguage {
+        public static string AskRetrieveLnLanguage {
             get {
                 return ResourceManager.GetString("AskRetrieveLnLanguage", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to End of processing predefined LN. Do you want to process another ?.
         /// </summary>
-        internal static string LogEndOfLnInConfig {
+        public static string LogEndOfLnInConfig {
             get {
                 return ResourceManager.GetString("LogEndOfLnInConfig", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to No URL for the {0} version. Process stoped..
         /// </summary>
-        internal static string LogNoLnUrlStopProcess {
+        public static string LogNoLnUrlStopProcess {
             get {
                 return ResourceManager.GetString("LogNoLnUrlStopProcess", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to No URL or language for this version. Unable to add it..
         /// </summary>
-        internal static string LogNoUrlOrLanguageForThisVersion {
+        public static string LogNoUrlOrLanguageForThisVersion {
             get {
                 return ResourceManager.GetString("LogNoUrlOrLanguageForThisVersion", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to End of the program..
         /// </summary>
-        internal static string LogProgramEnd {
+        public static string LogProgramEnd {
             get {
                 return ResourceManager.GetString("LogProgramEnd", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace LightNovelSniffer_CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Beginning of the program..
         /// </summary>
-        internal static string LogProgramStart {
+        public static string LogProgramStart {
             get {
                 return ResourceManager.GetString("LogProgramStart", resourceCulture);
             }
