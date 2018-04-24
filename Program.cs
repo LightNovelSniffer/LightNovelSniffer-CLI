@@ -59,7 +59,7 @@ namespace LightNovelSniffer_CLI
 
             foreach (LnParameters ln in Globale.LN_TO_RETRIEVE)
             {
-                if (consoleTools.Ask(string.Format(LightNovelSniffer_CLI_Strings.AskRetrieveLn, ln.name.ToUpper())))
+                if (consoleTools.Ask(string.Format(LightNovelSniffer_CLI_Strings.AskRetrieveLn, ln.name)))
                     GetNovel(ln);
             }
 
