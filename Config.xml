@@ -8,8 +8,6 @@
     <defaultChapterTitle>Chapitre {0}</defaultChapterTitle>
 
     <lnToRetrieve>
-        <!--
-        
         <ln>
             <name>Todag</name>
             <authors>
@@ -75,8 +73,60 @@
             </versions>
         </ln>
         
-        -->
-
+		<ln>
+            <name>Wu Dong Qian Kun</name>
+            <authors>
+                <author>Heavenly Silkworm Potato</author>
+                <author>Tian Can Tu Dou</author>
+                <author>天蚕土豆</author>
+            </authors>
+            <urlCover>https://f01.mrcdn.info/file/mrportal/i/2/9/a/3J.aeyfP0bW.png</urlCover>
+            <versions>
+                <version>
+                    <url>https://www.wuxiaworld.com/novel/wu-dong-qian-kun/wdqk-chapter-{0}</url>
+                    <language>EN</language>
+                    <firstChapterNumber></firstChapterNumber>
+                    <lastChapterNumber></lastChapterNumber>
+                </version>
+            </versions>
+        </ln>
+		
+		<ln>
+            <name>The Great Ruler</name>
+            <authors>
+                <author>Heavenly Silkworm Potato</author>
+                <author>Tian Can Tu Dou</author>
+                <author>天蚕土豆</author>
+            </authors>
+            <urlCover>https://f01.mrcdn.info/file/mrportal/i/3/f/f/u8.kFDz_vCg.jpg</urlCover>
+            <versions>
+                <version>
+                    <url>https://www.wuxiaworld.com/novel/the-great-ruler/tgr-chapter-{0}</url>
+                    <language>EN</language>
+                    <firstChapterNumber></firstChapterNumber>
+                    <lastChapterNumber></lastChapterNumber>
+                </version>
+            </versions>
+        </ln>
+		
+        <!-- <ln>
+            <name>Btth Prequel : The Legend Of Yao Lao</name>
+            <authors>
+                <author>Heavenly Silkworm Potato</author>
+                <author>Tian Can Tu Dou</author>
+                <author>天蚕土豆</author>
+            </authors>
+            <urlCover>https://f01.mrcdn.info/file/mrportal/i/2/d/c/td.9xOrj5zv.jpg</urlCover>
+            <versions>
+                <version>
+                    <url></url>
+                    <language>EN</language>
+                    <firstChapterNumber></firstChapterNumber>
+                    <lastChapterNumber></lastChapterNumber>
+                </version>
+            </versions>
+        </ln> -->
+		
         <ln>
             <name>KoG</name>
             <authors>
@@ -88,12 +138,28 @@
                 <version>
                     <url>http://gravitytales.com/Novel/king-of-gods/kog-chapter-{0}</url>
                     <language>EN</language>
-                    <firstChapterNumber>1</firstChapterNumber>
-                    <lastChapterNumber>10</lastChapterNumber>
+                    <firstChapterNumber></firstChapterNumber>
+                    <lastChapterNumber></lastChapterNumber>
                 </version>
             </versions>
-        </ln>-->
-
-
+        </ln>
+		
+		<ln>
+            <name>Martial God Asura</name>
+            <authors>
+                <author>Kindhearted Bee</author>
+                <author>Shan Liang de Mi Feng</author>
+                <author>善良的蜜蜂</author>
+            </authors>
+            <urlCover>https://www.wuxiaworld.com/images/covers/mga.png</urlCover>
+            <versions>
+                <version>
+                    <url>https://www.wuxiaworld.com/novel/martial-god-asura/mga-chapter-{0}</url>
+                    <language>EN</language>
+                    <firstChapterNumber></firstChapterNumber>
+                    <lastChapterNumber></lastChapterNumber>
+                </version>
+            </versions>
+        </ln>
     </lnToRetrieve>
 </Parameters>
