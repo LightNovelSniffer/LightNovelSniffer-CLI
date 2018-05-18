@@ -6,5 +6,8 @@
     <interactiveMode>true</interactiveMode>
 
     <publisher>ARUS Joshua</publisher>
+    
     <defaultChapterTitle>Chapitre {0}</defaultChapterTitle>
+
+    <maxNotExistingChapterBeforeStop>10</maxNotExistingChapterBeforeStop>
 </Parameters>
