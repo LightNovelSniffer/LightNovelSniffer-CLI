@@ -154,4 +154,22 @@
             </version>
         </versions>
     </ln>
+	
+	<ln>
+        <name>Legend of the Dragon King</name>
+        <authors>
+            <author>Tang Jia San Shao</author>
+            <author>唐家三少</author>
+        </authors>
+        <urlCover>https://cdn.wuxiaworld.com/images/covers/ldk.jpg</urlCover>
+        <versions>
+            <version>
+                <url>https://www.wuxiaworld.com/novel/legend-of-the-dragon-king/ldk-chapter-{0}</url>
+                <language>EN</language>
+                <firstChapterNumber></firstChapterNumber>
+                <lastChapterNumber></lastChapterNumber>
+            </version>
+        </versions>
+    </ln>
+	
 </lnToRetrieve>
