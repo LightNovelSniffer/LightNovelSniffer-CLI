@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Parameters>
-    <outputFolder>E:\LN_Test\</outputFolder>
+    <outputFolder>C:\</outputFolder>
 
     <interactiveMode>false</interactiveMode>
 
-    <publisher>ARUS Joshua</publisher>
+    <publisher>LightNovelSniffer</publisher>
     
     <defaultChapterTitle>Chapter {0}</defaultChapterTitle>
 
