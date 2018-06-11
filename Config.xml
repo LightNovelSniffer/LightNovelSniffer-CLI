@@ -9,5 +9,5 @@
     
     <defaultChapterTitle>Chapter {0}</defaultChapterTitle>
 
-    <maxNotExistingChapterBeforeStop>10</maxNotExistingChapterBeforeStop>
+    <maxChapterOnErrorCountBeforeStop>10</maxChapterOnErrorCountBeforeStop>
 </Parameters>
