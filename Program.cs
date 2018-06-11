@@ -37,8 +37,10 @@ namespace LightNovelSniffer_CLI
         {
             try
             {
-                ConfigTools.InitConf();
-                ConfigTools.InitLightNovels();
+                ConfigTools.InitConf("Config.xml");
+                ConfigTools.InitConf("Config_user.xml");
+                ConfigTools.InitLightNovels("LightNovels.xml", true);
+                ConfigTools.InitLightNovels("LightNovels_user.xml", true);
                 consoleTools = new ConsoleTools(1);
                 ConsoleTools ctForWebcrawler = new ConsoleTools(3);
                 webCrawler = new WebCrawler(ctForWebcrawler, ctForWebcrawler);

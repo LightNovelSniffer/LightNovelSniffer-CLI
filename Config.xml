@@ -3,11 +3,11 @@
 <Parameters>
     <outputFolder>E:\LN_Test\</outputFolder>
 
-    <interactiveMode>true</interactiveMode>
+    <interactiveMode>false</interactiveMode>
 
     <publisher>ARUS Joshua</publisher>
     
-    <defaultChapterTitle>Chapitre {0}</defaultChapterTitle>
+    <defaultChapterTitle>Chapter {0}</defaultChapterTitle>
 
     <maxNotExistingChapterBeforeStop>10</maxNotExistingChapterBeforeStop>
 </Parameters>
