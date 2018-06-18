@@ -1,4 +1,6 @@
 # LightNovelSniffer-CLI
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLightNovelSniffer%2FLightNovelSniffer-CLI.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FLightNovelSniffer%2FLightNovelSniffer-CLI?ref=badge_shield)
+
 Command Line Interface for LightNoverSniffer library
 
 ## Setup
@@ -19,3 +21,6 @@ LightNovels_user.xml can either override this list, or complete it, depending on
 By default, it will override it (this mean that if LightNovels_user.xml is empty, no LN will be processed).
 
 To change this behaviour to "adding" mode, change `true` to `false` in the following line in Program.cs : `ConfigTools.InitLightNovels("LightNovels_user.xml", true);`
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLightNovelSniffer%2FLightNovelSniffer-CLI.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FLightNovelSniffer%2FLightNovelSniffer-CLI?ref=badge_large)
