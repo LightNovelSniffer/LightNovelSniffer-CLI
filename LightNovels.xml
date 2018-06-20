@@ -2,7 +2,7 @@
 
 <lnToRetrieve>
     <ln>
-        <name>Todag</name>
+        <name>Tales of Demons and Gods</name>
         <authors>
             <author>Mad Snail</author>
             <author>发飙的蜗牛</author>
@@ -43,7 +43,7 @@
 
 
     <ln>
-        <name>Btth</name>
+        <name>Battle Through The Heavens</name>
         <authors>
             <author>Heavenly Silkworm Potato</author>
             <author>Tian Can Tu Dou</author>
@@ -102,28 +102,8 @@
         </versions>
     </ln>
 
-    <!-- NEED to find a website for this LN
-           
-        <ln>
-            <name>Btth Prequel : The Legend Of Yao Lao</name>
-            <authors>
-                <author>Heavenly Silkworm Potato</author>
-                <author>Tian Can Tu Dou</author>
-                <author>天蚕土豆</author>
-            </authors>
-            <urlCover>https://f01.mrcdn.info/file/mrportal/i/2/d/c/td.9xOrj5zv.jpg</urlCover>
-            <versions>
-                <version>
-                    <url></url>
-                    <language>EN</language>
-                    <firstChapterNumber></firstChapterNumber>
-                    <lastChapterNumber></lastChapterNumber>
-                </version>
-            </versions>
-        </ln> -->
-
     <ln>
-        <name>KoG</name>
+        <name>King of Gods</name>
         <authors>
             <author>Fast Food Restaurant</author>
             <author>快餐店</author>
@@ -167,6 +147,23 @@
         <versions>
             <version>
                 <url>https://www.wuxiaworld.com/novel/legend-of-the-dragon-king/ldk-chapter-{0}</url>
+                <language>EN</language>
+                <firstChapterNumber></firstChapterNumber>
+                <lastChapterNumber></lastChapterNumber>
+            </version>
+        </versions>
+    </ln>
+	
+	<ln>
+        <name>Peerless Battle Spirit</name>
+        <authors>
+            <author>Supreme Villain</author>
+            <author>极品妖孽</author>
+        </authors>
+        <urlCover>https://cdn.novelupdates.com/images/2017/06/peerless-battle-spirit.jpg</urlCover>
+        <versions>
+            <version>
+                <url>http://gravitytales.com/post/peerless-battle-spirit/peerless-battle-spirit-chapter-{0}</url>
                 <language>EN</language>
                 <firstChapterNumber></firstChapterNumber>
                 <lastChapterNumber></lastChapterNumber>
