@@ -10,4 +10,6 @@
     <defaultChapterTitle>Chapter {0}</defaultChapterTitle>
 
     <maxChapterOnErrorCountBeforeStop>10</maxChapterOnErrorCountBeforeStop>
+
+    <resumeExistingFile>true</resumeExistingFile>
 </Parameters>

@@ -43,7 +43,7 @@ namespace LightNovelSniffer_CLI
             }
         }
 
-        private void Write(string str)
+        internal void Write(string str)
         {
             WriteToStream(str);
             Console.Out.Write(str);

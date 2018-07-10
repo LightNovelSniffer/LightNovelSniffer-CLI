@@ -24,14 +24,14 @@
 using System;
 using System.IO;
 using LightNovelSniffer.Config;
-using LightNovelSniffer.Web;
 using LightNovelSniffer_CLI.Resources;
+using LNS = LightNovelSniffer.Program;
 
 namespace LightNovelSniffer_CLI
 {
     public static class Program
     {
-        private static WebCrawler webCrawler;
+        private static LNS lightNovelSniffer;
         private static ConsoleTools consoleTools;
         private static FileStream fileStream;
         private static StreamWriter fileWriter;
@@ -48,8 +48,8 @@ namespace LightNovelSniffer_CLI
                 ConfigTools.InitLightNovels("LightNovels.xml", true);
                 ConfigTools.InitLightNovels("LightNovels_user.xml", true);
                 consoleTools = new ConsoleTools(fileWriter, 1);
-                ConsoleTools ctForWebcrawler = new ConsoleTools(fileWriter, 3);
-                webCrawler = new WebCrawler(ctForWebcrawler, ctForWebcrawler);
+                ConsoleTools ctForCore = new ConsoleTools(fileWriter, 3);
+                lightNovelSniffer = new LNS(ctForCore, ctForCore);
             }
             catch (ApplicationException e)
             {
@@ -57,6 +57,7 @@ namespace LightNovelSniffer_CLI
                 return;
             }
 
+            ShowBannier();
             consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramStart);
 
             if (!consoleTools.Ask(String.Format(LightNovelSniffer_CLI_Strings.AskOutputFolderConfirmation, Globale.OUTPUT_FOLDER)))
@@ -102,7 +103,7 @@ namespace LightNovelSniffer_CLI
                         up.url = consoleTools.AskUrl(string.Format(LightNovelSniffer_CLI_Strings.AskLnUrl, ln.name));
 
                     if (!string.IsNullOrEmpty(up.url))
-                        webCrawler.DownloadChapters(ln, up.language);
+                        lightNovelSniffer.ProcessLightNovel(ln, up.language);
                     else
                         consoleTools.Log(string.Format(LightNovelSniffer_CLI_Strings.LogNoLnUrlStopProcess, up.language));
                 }
@@ -138,6 +139,22 @@ namespace LightNovelSniffer_CLI
             } while (consoleTools.Ask(LightNovelSniffer_CLI_Strings.AskAddAnotherLnVersion));
 
             return ln;
+        }
+
+        private static void ShowBannier()
+        {
+            consoleTools.Write(@"
+
+
+  ██╗                   ███╗   ██╗              ███████╗
+  ██║                   ████╗  ██║              ██╔════╝
+  ██║         █████╗    ██╔██╗ ██║    █████╗    ███████╗
+  ██║         ╚════╝    ██║╚██╗██║    ╚════╝    ╚════██║
+  ███████╗              ██║ ╚████║              ███████║
+  ╚══════╝              ╚═╝  ╚═══╝              ╚══════╝
+                                                      
+
+");
         }
     }
 }
