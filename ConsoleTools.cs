@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
 using LightNovelSniffer.Config;
 using LightNovelSniffer.Libs;
@@ -11,24 +13,47 @@ namespace LightNovelSniffer_CLI
     {
         private bool isProgressOngoing = false;
         private int defaultIndentation = 1;
-        
-        public ConsoleTools(int defaultIndentation)
+        private List<TextWriter> fileWriters;
+
+        public ConsoleTools(TextWriter fileWriter, int defaultIndentation)
+            : this(new List<TextWriter> {fileWriter}, defaultIndentation)
+        {
+        }
+
+        public ConsoleTools(List<TextWriter> fileWriters, int defaultIndentation)
         {
             this.defaultIndentation = defaultIndentation;
+            this.fileWriters = fileWriters;
         }
 
         private void CheckProgress()
         {
             if (isProgressOngoing)
             {
-                Console.WriteLine("");
+                Write("\r\n");
                 isProgressOngoing = false;
             }
         }
 
+        private void WriteToStream(string str)
+        {
+            foreach (TextWriter sw in fileWriters)
+            {
+                sw.Write(str);
+            }
+        }
+
+        private void Write(string str)
+        {
+            WriteToStream(str);
+            Console.Out.Write(str);
+        }
+
         private void OutputString(string str)
         {
-            Console.Write(DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " + str);
+            string output = DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " +
+                            str;
+            Write(output);
         }
 
         private string Indent(string text, int tab)
@@ -51,7 +76,8 @@ namespace LightNovelSniffer_CLI
         public void Progress(string text, int tab)
         {
             isProgressOngoing = true;
-            Console.Write("\r" + DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " + Indent(text, tab));
+            Write("\r" + DateTime.Now.ToString(CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern) + " : " +
+                  Indent(text, tab));
         }
 
         public void Log(string text)
@@ -66,8 +92,11 @@ namespace LightNovelSniffer_CLI
 
         public bool Ask(string question)
         {
-            string input = AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToUpper() + "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToLower() + " ");
-            return input != null && !input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper());
+            string input =
+                AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToUpper() +
+                               "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToLower());
+            return input != null &&
+                   !input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper());
         }
 
         public string AskInformation(string question)
@@ -75,8 +104,10 @@ namespace LightNovelSniffer_CLI
             if (!Globale.INTERACTIVE_MODE)
                 return "";
             CheckProgress();
-            OutputString(question);
-            return Console.ReadLine();
+            OutputString(question + " ");
+            string input = Console.ReadLine();
+            WriteToStream(input + "\r\n");
+            return input;
         }
 
         public string AskUrl(string question)
@@ -98,8 +129,12 @@ namespace LightNovelSniffer_CLI
 
         public bool AskNegative(string question)
         {
-            string input = AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToLower() + "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper() + " ");
-            return !(string.IsNullOrEmpty(input) || input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper()));
+            string input =
+                AskInformation(question + " " + LightNovelSniffer_CLI_Strings.AskQuestionChoicesPositiveAnswer.ToLower() +
+                               "/" + LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper());
+            return
+                !(string.IsNullOrEmpty(input) ||
+                  input.ToUpper().Equals(LightNovelSniffer_CLI_Strings.AskQuestionChoicesNegativeAnswer.ToUpper()));
         }
     }
 }

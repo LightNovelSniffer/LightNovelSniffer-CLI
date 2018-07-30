@@ -22,6 +22,7 @@
 // SUCH DAMAGE.
 
 using System;
+using System.IO;
 using LightNovelSniffer.Config;
 using LightNovelSniffer.Web;
 using LightNovelSniffer_CLI.Resources;
@@ -32,17 +33,22 @@ namespace LightNovelSniffer_CLI
     {
         private static WebCrawler webCrawler;
         private static ConsoleTools consoleTools;
+        private static FileStream fileStream;
+        private static StreamWriter fileWriter;
 
         public static void Main(string[] args)
         {
+            fileStream = new FileStream("log.txt", FileMode.Create, FileAccess.Write);
+            fileWriter = new FileWriter(fileStream);
+
             try
             {
                 ConfigTools.InitConf("Config.xml");
                 ConfigTools.InitConf("Config_user.xml");
                 ConfigTools.InitLightNovels("LightNovels.xml", true);
                 ConfigTools.InitLightNovels("LightNovels_user.xml", true);
-                consoleTools = new ConsoleTools(1);
-                ConsoleTools ctForWebcrawler = new ConsoleTools(3);
+                consoleTools = new ConsoleTools(fileWriter, 1);
+                ConsoleTools ctForWebcrawler = new ConsoleTools(fileWriter, 3);
                 webCrawler = new WebCrawler(ctForWebcrawler, ctForWebcrawler);
             }
             catch (ApplicationException e)
@@ -51,14 +57,14 @@ namespace LightNovelSniffer_CLI
                 return;
             }
 
+            consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramStart);
+
             if (!consoleTools.Ask(String.Format(LightNovelSniffer_CLI_Strings.AskOutputFolderConfirmation, Globale.OUTPUT_FOLDER)))
             {
                 string folder = consoleTools.AskInformation(LightNovelSniffer_CLI_Strings.AskOutputFolder);
                 if (!string.IsNullOrEmpty(folder))
                     Globale.OUTPUT_FOLDER = folder;
             }
-
-            consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramStart);
 
             foreach (LnParameters ln in Globale.LN_TO_RETRIEVE)
             {
@@ -78,6 +84,10 @@ namespace LightNovelSniffer_CLI
             }
 
             consoleTools.Log(LightNovelSniffer_CLI_Strings.LogProgramEnd);
+
+            fileWriter.Close();
+            fileStream.Close();
+
             if (Globale.INTERACTIVE_MODE)
                 Console.ReadLine();
         }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleTools.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LightNovelSniffer-CLI_Strings.fr.Designer.cs">
@@ -83,6 +84,7 @@
     <EmbeddedResource Include="Resources\LightNovelSniffer-CLI_Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LightNovelSniffer-CLI_Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
